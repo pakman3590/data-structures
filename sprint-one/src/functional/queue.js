@@ -17,19 +17,23 @@ var Queue = function() {
 
   someInstance.enqueue = function(value) {
     // add value with next numeric key to storage
-    this.storage[this.size()] = value;
+    someInstance.storage[someInstance.size() + someInstance.firstKey] = value;
   };
 
   someInstance.dequeue = function() {
+    // store first key object from storage
+    let dequeued = someInstance.storage[someInstance.firstKey];
     // remove object at first key from storage
-    delete this.storage[this.firstKey];
+    delete someInstance.storage[someInstance.firstKey];
     // update new first key
-    this.firstKey ++;
+    someInstance.firstKey ++;
+    // return stored object
+    return dequeued;
   };
 
   someInstance.size = function() {
     // return number of keys in storage object
-    return Object.keys(this.storage).length;
+    return Object.keys(someInstance.storage).length;
   };
 
 

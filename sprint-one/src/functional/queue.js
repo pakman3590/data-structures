@@ -2,6 +2,7 @@
 HIGH LEVEL:
 stores values within an object in order based on numeric keys
 adds new values to object at end (highest key) and removes lowest key
+dequeue method should remove "oldest" object and return the removed object
 */
 
 var Queue = function() {
